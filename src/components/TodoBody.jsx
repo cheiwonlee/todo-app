@@ -1,30 +1,12 @@
 import TodoItem from "./TodoItem";
 
-// todos 더미데이터
-const todos = [
-  {
-    id: 1,
-    title: "React 공부",
-    summary: "React를 공부한다.",
-    category: "TODO",
-  },
-  {
-    id: 2,
-    title: "점심 먹기",
-    summary: "점심을 먹는다.",
-    category: "PROGRESS",
-  },
-  {
-    id: 3,
-    title: "커피 마시기",
-    summary: "커피를 마신다.",
-    category: "DONE",
-  },
-];
+// 전달된 Props 객체 내부에서 todos라는 키(Key)만 바로 쏙 꺼내서 변수로 사용하겠다는 뜻
+// todos로 쓸 때 (중괄호 없음)
+// 첫 번째 인자 전체(Props 객체)를 todos라는 이름의 변수로 받게 됨.
 
-const todoList = todos.map((todo) => <TodoItem todo={todo} key={todo.id} />);
+const TodoBody = ({ todos }) => {
+  const todoList = todos.map((todo) => <TodoItem todo={todo} key={todo.id} />);
 
-const TodoBody = () => {
   return <div>{todoList}</div>;
 };
 
